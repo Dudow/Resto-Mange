@@ -25,9 +25,9 @@
     >
     <button
       type="button"
-      @click="addResto"
+      @click="updateResto"
     >
-      Add Resto
+      Update Resto
     </button>
   </form>
 </template>
@@ -50,23 +50,27 @@ export default {
       }
     };
   },
-  mounted() {
+  async mounted() {
     const user = localStorage.getItem("user-info");
     this.name = JSON.stringify(user).name;
 
     if (!user) {
       this.$router.push({ name: "SignUp" });
     }
+
+    const response = await axios.get("http://localhost:3000/restos/" + this.$route.params.id);
+
+    this.resto = response.data;
   },
   methods: {
-    async addResto() {
-      const response = await axios.post("http://localhost:3000/restos", {
+    async updateResto() {
+      const response = await axios.patch("http://localhost:3000/restos/" + this.$route.params.id, {
         name: this.resto.name,
         address: this.resto.address,
         contact: this.resto.contact
       });
 
-      if (response.status === 201) {
+      if (response.status === 200) {
         this.$router.push({ name: "Home" });
       }
     }

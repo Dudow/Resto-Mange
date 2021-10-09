@@ -6,9 +6,6 @@
     <router-link to="/add">
       Add Restaurant
     </router-link>
-    <router-link to="/update">
-      Update Restaurant
-    </router-link>
     <a
       href="#"
       @:click="logout"

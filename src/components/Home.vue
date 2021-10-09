@@ -5,13 +5,14 @@
     class="table"
     border="1"
   >
-    <th colspan="3">
+    <th colspan="4">
       RESTOS
     </th>
     <tr>
-      <td>name</td>
-      <td>contact</td>
-      <td>address</td>
+      <td>Name</td>
+      <td>Contact</td>
+      <td>Address</td>
+      <td>Actions</td>
     </tr>
     <tr
       v-for="item in restos"
@@ -20,6 +21,11 @@
       <td>{{ item.name }}</td>
       <td>{{ item.contact }}</td>
       <td>{{ item.address }}</td>
+      <td>
+        <router-link :to="'/update/' + item.id">
+          Update
+        </router-link>
+      </td>
     </tr>
   </table>
 </template>
