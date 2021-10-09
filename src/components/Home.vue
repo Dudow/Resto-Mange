@@ -11,6 +11,6 @@ export default {
     if (!user) {
       this.$router.push({ name: "SignUp" });
     }
-  },
+  }
 };
 </script>

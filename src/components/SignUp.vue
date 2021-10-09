@@ -25,24 +25,22 @@ export default {
     return {
       name: "",
       email: "",
-      password: "",
+      password: ""
     };
   },
   methods: {
     async signUp() {
-      const result = await axios.post("http://localhost:3000/users", {
+      const response = await axios.post("http://localhost:3000/users", {
         email: this.email,
         password: this.password,
-        name: this.name,
+        name: this.name
       });
 
-      console.log(result);
-
-      if (result.status === 201) {
-        localStorage.setItem("user-info", JSON.stringify(result.data));
+      if (response.status === 201) {
+        localStorage.setItem("user-info", JSON.stringify(response.data));
         this.$router.push({ name: "Home" });
       }
-    },
+    }
   },
   mounted() {
     const user = localStorage.getItem("user-info");
@@ -50,7 +48,7 @@ export default {
     if (user) {
       this.$router.push({ name: "Home" });
     }
-  },
+  }
 };
 </script>
 

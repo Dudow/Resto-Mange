@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       email: "",
-      password: "",
+      password: ""
     };
   },
   methods: {
@@ -34,7 +34,7 @@ export default {
         localStorage.setItem("user-info", JSON.stringify(response.data[0]));
         this.$router.push({ name: "Home" });
       }
-    },
+    }
   },
   mounted() {
     const user = localStorage.getItem("user-info");
@@ -42,7 +42,7 @@ export default {
     if (user) {
       this.$router.push({ name: "Home" });
     }
-  },
+  }
 };
 </script>
 
