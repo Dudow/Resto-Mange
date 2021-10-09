@@ -4,11 +4,15 @@
     <h1>Login</h1>
   </div>
   <div class="form">
-    <input type="email" v-model="email" placeholder="Email" />
-    <input type="password" v-model="password" placeholder="Password" />
-    <button v-on:click="login">Login</button>
+    <input v-model="email" type="email" placeholder="Email" />
+    <input v-model="password" type="password" placeholder="Password" />
+    <button @click="login">
+      Login
+    </button>
     <p>
-      <router-link to="/sign-up"> Sign Up </router-link>
+      <router-link to="/sign-up">
+        Sign Up
+      </router-link>
     </p>
   </div>
 </template>
@@ -24,6 +28,13 @@ export default {
       password: ""
     };
   },
+  mounted() {
+    const user = localStorage.getItem("user-info");
+
+    if (user) {
+      this.$router.push({ name: "Home" });
+    }
+  },
   methods: {
     async login() {
       const response = await axios.get(
@@ -34,13 +45,6 @@ export default {
         localStorage.setItem("user-info", JSON.stringify(response.data[0]));
         this.$router.push({ name: "Home" });
       }
-    }
-  },
-  mounted() {
-    const user = localStorage.getItem("user-info");
-
-    if (user) {
-      this.$router.push({ name: "Home" });
     }
   }
 };

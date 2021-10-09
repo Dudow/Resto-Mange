@@ -1,13 +1,31 @@
 <template>
   <div class="header">
-    <img alt="Dudow logo" class="logo" src="../assets/logo.png" />
+    <img
+      alt="Dudow logo"
+      class="logo"
+      src="../assets/logo.png"
+    >
     <h1>Sign Up</h1>
   </div>
   <div class="form">
-    <input v-model="name" type="text" placeholder="Name" />
-    <input type="email" v-model="email" placeholder="Email" />
-    <input type="password" v-model="password" placeholder="Password" />
-    <button v-on:click="signUp">Sign Up</button>
+    <input
+      v-model="name"
+      type="text"
+      placeholder="Name"
+    >
+    <input
+      v-model="email"
+      type="email"
+      placeholder="Email"
+    >
+    <input
+      v-model="password"
+      type="password"
+      placeholder="Password"
+    >
+    <button @click="signUp">
+      Sign Up
+    </button>
     <p>
       <router-link to="/login">
         Login
@@ -28,6 +46,13 @@ export default {
       password: ""
     };
   },
+  mounted() {
+    const user = localStorage.getItem("user-info");
+
+    if (user) {
+      this.$router.push({ name: "Home" });
+    }
+  },
   methods: {
     async signUp() {
       const response = await axios.post("http://localhost:3000/users", {
@@ -40,13 +65,6 @@ export default {
         localStorage.setItem("user-info", JSON.stringify(response.data));
         this.$router.push({ name: "Home" });
       }
-    }
-  },
-  mounted() {
-    const user = localStorage.getItem("user-info");
-
-    if (user) {
-      this.$router.push({ name: "Home" });
     }
   }
 };
