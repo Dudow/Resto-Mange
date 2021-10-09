@@ -1,11 +1,23 @@
 <template>
   <div class="header">
-    <img alt="Dudow logo" class="logo" src="../assets/logo.png" />
+    <img
+      alt="Dudow logo"
+      class="logo"
+      src="../assets/logo.png"
+    >
     <h1>Login</h1>
   </div>
   <div class="form">
-    <input v-model="email" type="email" placeholder="Email" />
-    <input v-model="password" type="password" placeholder="Password" />
+    <input
+      v-model="email"
+      type="email"
+      placeholder="Email"
+    >
+    <input
+      v-model="password"
+      type="password"
+      placeholder="Password"
+    >
     <button @click="login">
       Login
     </button>

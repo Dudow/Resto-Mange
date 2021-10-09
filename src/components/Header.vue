@@ -1,15 +1,18 @@
 <template>
   <div class="header">
-    <a href="#">
+    <router-link to="/">
       Home
-    </a>
-    <a href="#">
+    </router-link>
+    <router-link to="/add">
       Add Restaurant
-    </a>
-    <a href="#">
+    </router-link>
+    <router-link to="/update">
       Update Restaurant
-    </a>
-    <a href="#" @:click="logout">
+    </router-link>
+    <a
+      href="#"
+      @:click="logout"
+    >
       Logout
     </a>
   </div>
