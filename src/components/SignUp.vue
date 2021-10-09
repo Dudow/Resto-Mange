@@ -8,6 +8,11 @@
     <input type="email" v-model="email" placeholder="Email" />
     <input type="password" v-model="password" placeholder="Password" />
     <button v-on:click="signUp">Sign Up</button>
+    <p>
+      <router-link to="/login">
+        Login
+      </router-link>
+    </p>
   </div>
 </template>
 
@@ -49,7 +54,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .logo {
   width: 35px;
   height: 35px;
