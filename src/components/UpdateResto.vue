@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     async updateResto() {
-      const response = await axios.patch("http://localhost:3000/restos/" + this.$route.params.id, {
+      const response = await axios.put("http://localhost:3000/restos/" + this.$route.params.id, {
         name: this.resto.name,
         address: this.resto.address,
         contact: this.resto.contact

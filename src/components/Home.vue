@@ -5,14 +5,16 @@
     class="table"
     border="1"
   >
-    <th colspan="4">
+    <th colspan="5">
       RESTOS
     </th>
     <tr>
       <td>Name</td>
       <td>Contact</td>
       <td>Address</td>
-      <td>Actions</td>
+      <td colspan="2">
+        Actions
+      </td>
     </tr>
     <tr
       v-for="item in restos"
@@ -25,6 +27,11 @@
         <router-link :to="'/update/' + item.id">
           Update
         </router-link>
+      </td>
+      <td>
+        <button @click="deleteResto(item.id)">
+          Delete
+        </button>
       </td>
     </tr>
   </table>
@@ -53,8 +60,21 @@ export default {
       this.$router.push({ name: "SignUp" });
     }
 
-    const response = await axios.get("http://localhost:3000/restos");
-    this.restos = response.data;
+    this.fetchData();
+  },
+  methods: {
+    async deleteResto(id) {
+      const response = await axios.delete("http://localhost:3000/restos/" + id);
+
+      if (response.status === 200) {
+        this.fetchData();
+      }
+    },
+
+    async fetchData() {
+      const response = await axios.get("http://localhost:3000/restos");
+      this.restos = response.data;
+    }
   }
 };
 </script>
