@@ -1,24 +1,9 @@
-# pashtu-resto
+# Project to learn Vue basics
 
-## Project setup
-```
-yarn install
-```
+## This guy helped me: 👇
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+https://youtu.be/qieXC2pfeN0?list=PL8p2I9GklV44m5tFH-zjCmTiHeq9GZrby
 
-### Compiles and minifies for production
-```
-yarn build
-```
+### Thank you, indian boy 🇧🇷 🤝 🇮🇳
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Please, ignore the design... 😳
